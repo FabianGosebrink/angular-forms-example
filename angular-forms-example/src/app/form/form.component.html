@@ -1,1 +1,62 @@
-<p>form works!</p>
+<div class="grid-container">
+  <h1 class="mat-h1">Form</h1>
+
+  <form class="example-form" [formGroup]="showForm">
+    <mat-form-field class="example-full-width">
+      <mat-label>Company</mat-label>
+      <input matInput [formControl]="showForm.controls.company" />
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>First name</mat-label>
+      <input matInput formControlName="firstName" />
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Address</mat-label>
+      <textarea matInput placeholder="Ex. 100 Main St"></textarea>
+    </mat-form-field>
+
+    <mat-radio-group
+      aria-label="Select an option"
+      class="example-radio-group"
+      formControlName="selectedOption"
+    >
+      <mat-radio-button
+        *ngFor="let option of options"
+        class="example-radio-button"
+        [value]="option.id"
+        >{{ option.name }}</mat-radio-button
+      >
+    </mat-radio-group>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Favorite food</mat-label>
+      <mat-select formControlName="selectedFood">
+        <mat-option *ngFor="let food of foods" [value]="food.value">
+          {{ food.viewValue }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- <mat-form-field appearance="fill">
+      <mat-label>Choose one</mat-label>
+      <mat-select [formControl]="selected">
+        <mat-option>Clear</mat-option>
+        <mat-option value="valid">Valid option</mat-option>
+        <mat-option value="invalid">Invalid option</mat-option>
+      </mat-select>
+      <mat-hint>Errors appear instantly!</mat-hint>
+      <mat-error *ngIf="selected.hasError('required')"
+        >You must make a selection</mat-error
+      >
+      <mat-error
+        *ngIf="selected.hasError('pattern') && !selected.hasError('required')"
+      >
+        Your selection is invalid
+      </mat-error>
+    </mat-form-field> -->
+
+    <pre>{{ showForm.value | json }}</pre>
+  </form>
+</div>
