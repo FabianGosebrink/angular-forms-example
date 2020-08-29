@@ -8,12 +8,10 @@
           <mat-label> First Name:</mat-label>
           <input matInput formControlName="firstName" />
         </mat-form-field>
-        <br />
         <mat-form-field appearance="fill" class="example-full-width">
           <mat-label> Last Name:</mat-label>
           <input matInput formControlName="lastName" />
         </mat-form-field>
-        <br />
 
         <mat-form-field appearance="fill" class="example-full-width">
           <mat-label>Age:</mat-label>
@@ -25,7 +23,6 @@
             >For this Room you have to be over 18 years old</mat-error
           >
         </mat-form-field>
-        <br />
 
         <mat-form-field>
           <mat-label>Request room access</mat-label>
@@ -35,16 +32,18 @@
             </mat-option>
           </mat-select>
         </mat-form-field>
-        <br />
 
-        <button
-          mat-raised-button
-          color="primary"
-          type="submit"
-          [disabled]="!myForm.valid"
-        >
-          Submit
-        </button>
+        <mat-card-actions align="end">
+          <button
+            mat-raised-button
+            color="primary"
+            type="submit"
+            [disabled]="!myForm.valid"
+          >
+            Submit
+          </button>
+        </mat-card-actions>
+
         <pre>{{ myForm.status | json }}</pre>
         <pre>{{ myForm.value | json }}</pre>
         <pre>{{ myForm.errors | json }}</pre>
