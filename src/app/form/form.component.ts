@@ -19,10 +19,7 @@ export class FormComponent implements OnInit {
     { text: 'room 3', value: 'room-3' },
   ];
 
-  constructor(
-    private formBuilder: FormBuilder,
-    private roomOver18Validator: RestrictAgeValidator
-  ) {}
+  constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit() {
     this.myForm = this.formBuilder.group(
@@ -33,7 +30,7 @@ export class FormComponent implements OnInit {
         room: [null, Validators.required],
       },
       {
-        validators: [this.roomOver18Validator.restrictAgeValidator(18)],
+        validators: [RestrictAgeValidator.restrictAgeValidator(18)],
         updateOn: 'change',
       }
     );

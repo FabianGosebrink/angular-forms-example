@@ -46,6 +46,10 @@
             Submit
           </button>
         </mat-card-actions>
+
+        <mat-error *ngIf="myForm.errors?.roomOnlyWith18"
+          >For this Room you have to be over 18 years old</mat-error
+        >
       </form>
     </mat-card>
   </div>
