@@ -19,6 +19,9 @@
           <mat-error *ngIf="myForm.get('age').errors?.required"
             >Please enter your age</mat-error
           >
+          <mat-error *ngIf="myForm.get('age').errors?.ageNotValid"
+            >This age is not valid (0 - 100)</mat-error
+          >
           <mat-error *ngIf="myForm.get('age').errors?.provideMinAge"
             >For this Room you have to be over 18 years old</mat-error
           >
@@ -43,10 +46,6 @@
             Submit
           </button>
         </mat-card-actions>
-
-        <pre>{{ myForm.status | json }}</pre>
-        <pre>{{ myForm.value | json }}</pre>
-        <pre>{{ myForm.errors | json }}</pre>
       </form>
     </mat-card>
   </div>

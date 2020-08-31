@@ -1,10 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  AbstractControl,
-  FormBuilder,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AgeValidator } from './age.validator';
 import { RestrictAgeValidator } from './restrict-age.validator';
 import { Room } from './room';
 
@@ -33,7 +29,7 @@ export class FormComponent implements OnInit {
       {
         firstName: ['', Validators.required],
         lastName: ['', Validators.required],
-        age: ['', [Validators.required, NoNegativeNumbers]],
+        age: ['', [Validators.required, AgeValidator.ageValidator]],
         room: [null, Validators.required],
       },
       {
@@ -46,8 +42,4 @@ export class FormComponent implements OnInit {
   onSubmit() {
     console.log(this.myForm.value);
   }
-}
-
-export function NoNegativeNumbers(control: AbstractControl) {
-  return control.value < 0 ? { negativeNumber: true } : null;
 }
