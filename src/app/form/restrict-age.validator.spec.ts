@@ -1,27 +1,10 @@
-import { async, TestBed } from '@angular/core/testing';
 import { FormControl, FormGroup } from '@angular/forms';
 import { RestrictAgeValidator } from './restrict-age.validator';
 
 describe('RestrictAgeValidator', () => {
-  let validator: RestrictAgeValidator;
-
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      providers: [RestrictAgeValidator],
-    }).compileComponents();
-  }));
-
-  beforeEach(() => {
-    validator = TestBed.inject(RestrictAgeValidator);
-  });
-
-  it('should create', () => {
-    expect(validator).toBeDefined();
-  });
-
   describe('restricts age correctly', () => {
     it('should not return null when given age is under the required age', () => {
-      const validatorFn = validator.restrictAgeValidator(10);
+      const validatorFn = RestrictAgeValidator.restrictAgeValidator(10);
 
       const formGroup = new FormGroup({
         age: new FormControl(9),
@@ -34,7 +17,7 @@ describe('RestrictAgeValidator', () => {
     });
 
     it('should return null when given age is above the required age', () => {
-      const validatorFn = validator.restrictAgeValidator(18);
+      const validatorFn = RestrictAgeValidator.restrictAgeValidator(18);
 
       const formGroup = new FormGroup({
         age: new FormControl(20),
