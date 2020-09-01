@@ -23,6 +23,7 @@ export class BlockButtonsComponent implements ControlValueAccessor {
   setValue(val: any) {
     this.internalValue = val;
     this.onChanged(this.internalValue);
+    this.onTouched();
   }
 
   writeValue(obj: any): void {
