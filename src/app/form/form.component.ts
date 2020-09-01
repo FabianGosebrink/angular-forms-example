@@ -28,6 +28,7 @@ export class FormComponent implements OnInit {
         lastName: ['', Validators.required],
         age: ['', [Validators.required, AgeValidator.ageValidator]],
         room: [null, Validators.required],
+        toggle: [''],
       },
       {
         validators: [RestrictAgeValidator.restrictAgeValidator(18)],

@@ -7,9 +7,10 @@ import { AppComponent } from './app.component';
 import { FormComponent } from './form/form.component';
 import { MaterialModule } from './material/material.module';
 import { NavigationComponent } from './navigation/navigation.component';
+import { BlockButtonsComponent } from './block-buttons/block-buttons.component';
 
 @NgModule({
-  declarations: [AppComponent, NavigationComponent, FormComponent],
+  declarations: [AppComponent, NavigationComponent, FormComponent, BlockButtonsComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
