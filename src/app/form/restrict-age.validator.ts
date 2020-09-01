@@ -32,6 +32,7 @@ export class RestrictAgeValidator {
         return { roomOnlyWith18: true };
       }
 
+      ageControl.setErrors(null);
       return null;
     };
   }
