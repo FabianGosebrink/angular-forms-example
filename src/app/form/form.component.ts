@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AgeValidator } from './age.validator';
-import { RestrictAgeValidator } from './restrict-age.validator';
 import { Room } from './room';
 
 @Component({
@@ -22,19 +20,13 @@ export class FormComponent implements OnInit {
   constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit() {
-    this.myForm = this.formBuilder.group(
-      {
-        firstName: ['', Validators.required],
-        lastName: ['', Validators.required],
-        age: ['', [Validators.required, AgeValidator.ageValidator]],
-        room: [null, Validators.required],
-        toggle: [''],
-      },
-      {
-        validators: [RestrictAgeValidator.restrictAgeValidator(18)],
-        updateOn: 'change',
-      }
-    );
+    this.myForm = this.formBuilder.group({
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      age: ['', [Validators.required]],
+      room: [null, Validators.required],
+      toggle: [''],
+    });
   }
 
   onSubmit() {
